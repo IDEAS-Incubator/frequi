@@ -16,7 +16,7 @@
     "test:e2e-msedge": "playwright test --project=msedge"
   },
   "dependencies": {
-    "@noction/vue-draggable-grid": "1.9.16",
+    "@noction/vue-draggable-grid": "1.11.0",
     "@popperjs/core": "^2.11.8",
     "@vuepic/vue-datepicker": "^11.0.1",
     "@vueuse/core": "^12.7.0",
