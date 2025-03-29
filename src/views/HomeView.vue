@@ -7,7 +7,7 @@
     </div>
     <hr />
     <!-- <img alt="Freqtrade logo" src="../assets/freqtrade-logo.png" width="450px" class="my-5" /> -->
-    <div title="Freqtrade logo" class="logo-svg my-5 mx-auto" />
+    <div title="CryptoGPT_Freqtrade logo" class="logo-svg my-5 mx-auto" />
     <div>
       <h1>Welcome to the CryptoGPT UI</h1>
     </div>
@@ -15,10 +15,10 @@
     <br />
     <p>
       If you need any help, please refer to the
-      <a href="https://www.freqtrade.io/en/latest/">Freqtrade Documentation</a>.
+      <a href="https://www.freqtrade.io/en/latest/">CryptoGPT_Freqtrade Documentation</a>.
     </p>
 
-    <p>Have fun - <i>wishes you the Freqtrade team</i></p>
+    <p>Have fun - <i>wishes you the CryptoGPT_Freqtrade team</i></p>
   </div>
 </template>
 

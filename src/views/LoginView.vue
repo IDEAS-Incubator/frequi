@@ -2,7 +2,7 @@
 
 <template>
   <div class="container">
-    <BCard header="Freqtrade bot Login">
+    <BCard header="CryptoGPT_Freqtrade bot Login">
       <BotLogin ref="loginForm" />
     </BCard>
   </div>

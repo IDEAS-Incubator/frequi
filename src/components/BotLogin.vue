@@ -195,7 +195,7 @@ defineExpose({
           id="username-input"
           v-model="auth.username"
           required
-          placeholder="Freqtrader"
+          placeholder="CryptoGPT_Freqtrader"
           :state="nameState"
           @keydown.enter="handleOk"
         ></BFormInput>
@@ -222,7 +222,7 @@ defineExpose({
           <span v-if="errorMessageCORS"
             >Please also check your bot's CORS configuration:
             <a href="https://www.freqtrade.io/en/latest/rest-api/#cors"
-              >Freqtrade CORS documentation</a
+              >CryptoGPT_Freqtrade CORS documentation</a
             ></span
           >
         </BAlert>

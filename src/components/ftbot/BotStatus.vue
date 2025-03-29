@@ -7,7 +7,7 @@ const botStore = useBotStore();
 <template>
   <div v-if="botStore.activeBot.botState">
     <p>
-      Running Freqtrade <strong>{{ botStore.activeBot.version }}</strong>
+      Running CryptoGPT_Freqtrade <strong>{{ botStore.activeBot.version }}</strong>
     </p>
     <p>
       Running with
