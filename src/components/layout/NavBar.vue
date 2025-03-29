@@ -115,44 +115,32 @@ watch(
           <BNavItem to="/graph">Chart</BNavItem>
           <BNavItem to="/logs">Logs</BNavItem>
           <BNavItem v-if="botStore.canRunBacktest" to="/backtest">Backtest</BNavItem>
-          <BNavItem
-            v-if="botStore.isWebserverMode && botStore.activeBot.botApiVersion >= 2.41"
-            to="/download_data"
-            >Download Data</BNavItem
-          >
-          <BNavItem
-            v-if="
-              (botStore.activeBot?.isWebserverMode ?? false) &&
-              botStore.activeBot.botApiVersion >= 2.3
-            "
-            to="/pairlist_config"
-            >Pairlist Config</BNavItem
-          >
+          <BNavItem v-if="botStore.isWebserverMode && botStore.activeBot.botApiVersion >= 2.41" to="/download_data">
+            Download Data</BNavItem>
+          <BNavItem v-if="
+            (botStore.activeBot?.isWebserverMode ?? false) &&
+            botStore.activeBot.botApiVersion >= 2.3
+          " to="/pairlist_config">Pairlist Config</BNavItem>
+          
+          <BNavItem href="http://54.215.73.141/" target="_blank" rel="noopener noreferrer">
+            Market Sentiment
+          </BNavItem>
+
           <ThemeSelect />
         </BNavbarNav>
 
         <!-- Right aligned nav items -->
         <BNavbarNav class="ms-auto" menu-class="w-100">
           <!-- TODO This should show outside of the dropdown in XS mode -->
-          <div
-            v-if="!settingsStore.confirmDialog"
-            class="my-auto me-5"
+          <div v-if="!settingsStore.confirmDialog" class="my-auto me-5"
             title="Confirm dialog deactivated, Forced exits will be executed immediately. Be careful."
-            style="color: yellow"
-          >
+            style="color: yellow">
             <i-mdi-run-fast />
             <i-mdi-alert />
           </div>
           <div class="d-flex justify-content-between">
-            <BDropdown
-              v-if="botStore.botCount > 1"
-              size="sm"
-              class="m-1"
-              no-caret
-              variant="info"
-              toggle-class="d-flex align-items-center "
-              menu-class="my-0 py-0"
-            >
+            <BDropdown v-if="botStore.botCount > 1" size="sm" class="m-1" no-caret variant="info"
+              toggle-class="d-flex align-items-center " menu-class="my-0 py-0">
               <template #button-content>
                 <BotEntry :bot="botStore.selectedBotObj" :no-buttons="true" />
               </template>
@@ -160,9 +148,7 @@ watch(
             </BDropdown>
             <ReloadControl class="me-3" title="Confirm Dialog deactivated." />
           </div>
-          <li
-            class="d-none d-md-flex flex-md-wrap flex-lg-nowrap align-items-center nav-item text-secondary me-2"
-          >
+          <li class="d-none d-md-flex flex-md-wrap flex-lg-nowrap align-items-center nav-item text-secondary me-2">
             <BNavText class="small me-2">
               {{
                 (botStore.activeBotorUndefined && botStore.activeBotorUndefined.botName) ||
@@ -213,13 +199,9 @@ watch(
               <BNavItem class="py-0" to="/settings" title="Settings">
                 Settings <i-mdi-cog class="ms-auto" />
               </BNavItem>
-              <BNavItem
-                v-if="botStore.botCount === 1"
-                class="nav-link navbar-nav"
-                to="/"
-                @click="clickLogout()"
-                >Sign Out</BNavItem
-              >
+              <BNavItem v-if="botStore.botCount === 1" class="nav-link navbar-nav" to="/" @click="clickLogout()">Sign
+                Out
+              </BNavItem>
             </div>
           </li>
           <li v-else>
@@ -235,7 +217,12 @@ watch(
 <style lang="scss" scoped>
 .logo {
   vertical-align: middle;
-  height: 30px;
+  height: 35px;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .dropdown-toggle::after {
@@ -243,12 +230,100 @@ watch(
 }
 
 .navbar-brand-title {
-  padding-left: 0.5em;
+  padding-left: 0.8em;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
 }
+
 .navbar {
-  padding: 0.2rem 0rem;
+  padding: 0.4rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
 }
+
 .nav-link {
-  padding: 0rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0 0.2rem;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-item {
+  margin: 0 0.2rem;
+}
+
+:deep(.b-navbar-nav) {
+  gap: 0.5rem;
+}
+
+:deep(.b-avatar) {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+:deep(.b-avatar:hover) {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+:deep(.dropdown-menu) {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+:deep(.dropdown-item) {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+:deep(.dropdown-item:hover) {
+  background-color: rgba(52, 152, 219, 0.1);
+  transform: translateX(4px);
+}
+
+:deep(.navbar-toggler) {
+  border: none;
+  padding: 0.5rem;
+}
+
+:deep(.navbar-toggler:focus) {
+  box-shadow: none;
+}
+
+:deep(.navbar-toggler-icon) {
+  background-image: none;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+:deep(.navbar-toggler-icon::before),
+:deep(.navbar-toggler-icon::after) {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+:deep(.navbar-toggler-icon::before) {
+  top: -6px;
+}
+
+:deep(.navbar-toggler-icon::after) {
+  bottom: -6px;
 }
 </style>
